@@ -65,7 +65,7 @@ class GiftedChat extends React.Component {
     this.onSend = this.onSend.bind(this);
     this.getLocale = this.getLocale.bind(this);
 
-    this.invertibleScrollViewProps = {
+    this.invertibleScrollViewProps = Object.assign({}, {
       inverted: true,
       keyboardShouldPersistTaps: true,
       onTouchStart: this.onTouchStart,
@@ -75,7 +75,7 @@ class GiftedChat extends React.Component {
       onKeyboardWillHide: this.onKeyboardWillHide,
       onKeyboardDidShow: this.onKeyboardDidShow,
       onKeyboardDidHide: this.onKeyboardDidHide,
-    };
+    }, this.props.invertibleScrollViewProps || {});
   }
 
   static append(currentMessages = [], messages) {
